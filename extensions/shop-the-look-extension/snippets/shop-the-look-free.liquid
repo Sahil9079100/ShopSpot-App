@@ -1,0 +1,93 @@
+<style>
+  button[name="add"] {
+    background-color:{{ block.settings.bgColor }};
+  }
+  .drawer-text{
+    color:{{ block.settings.Color }} ;
+  }
+  .shopLook-heading h2.your-custom-class {
+    color:{{ block.settings.Color }};
+  }
+  .m_shoppable-image__hotspot-inner {
+    background-color: {{ block.settings.hotspotbgcolor }};
+  }
+    .left-container img {
+    object-fit: {{ block.settings.img-position }};
+  }
+</style>
+<section class="m_section" data-mobile-heading="{{ block.settings.mainHeading2 }}">
+  <div class="shopLook-heading">
+    <h2 class="your-custom-class">{{ block.settings.mainHeading }}</h2>
+  </div>
+  <div class="m_shopLook">
+    {% if block.settings.productImage != blank %}
+      <div class="left-container">
+        {% for i in (i..2) %}
+          {%- capture x-coordinate -%}x-coordinate{{ forloop.index }}{%- endcapture -%}
+          {%- capture y-coordinate -%}y-coordinate{{ forloop.index }}{%- endcapture -%}
+          {%- capture product -%}product_{{ forloop.index }}{%- endcapture -%}
+          {% if block.settings[x-coordinate] != blank or block.settings[y-coordinate] != blank %}
+            {% if block.settings[product] %}
+              <div
+                class="m_shoppable-image__hotspot m_tooltip--overflow-left"
+                data-product="{{ block.settings[product] | remove : '/products/' }}"
+                style="left: {{ block.settings[x-coordinate] }}%; bottom: {{ block.settings[y-coordinate] }}%"
+              >
+                <div class="m_hotspot__tooltip-image-wrapper">
+                  <div class="m_shoppable-image__hotspot-inner"></div>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        <img width="100" height="100" src="{{ block.settings.productImage | image_url: width: 1000 }}" loading="lazy">
+      </div>
+    {% endif %}
+    <section class="items mobile-display-none">
+      {% for i in (1..2) %}
+        {% capture product %}product_{{ forloop.index }}{% endcapture %}
+        {% assign handle = block.settings[product] | remove: '/products/' %}
+        {% assign product = all_products[handle] %}
+        {% if product.title != blank %}
+          <div class="product-grid-items " data-handle="{{ handle }}">
+            <div class="m-product-item item">
+              <a href="{{ product.url }}">
+                <img width="100" height="100" src="{{ product.featured_image | image_url: width: 200 }}" loading="lazy">
+              </a>
+              <div class="contant_product">
+                <p class="m-product-title">{{ product.title }}</p>
+                <div class="shopprice">
+                  <p class="m-product-money-compare-price">{{ product.compare_at_price | money }}</p>
+                  <p class="m-product-money">{{ product.price | money }}</p>
+                </div>
+                <div class="option-data">
+                  {% if product.variants.size > 1 %}
+                    <select name="shopLook" class="shopLook">
+                      {% for variant in product.variants %}
+                        {% if variant.available %}
+                          <option value="{{ variant.id }}">{{ variant.title }}</option>
+                        {% else %}
+                          <option value="{{ variant.id }}" disabled>{{ variant.title }}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                  {% else %}
+                    <input type="hidden" class="shopLook" value="{{ product.selected_or_first_available_variant.id }}">
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="submit-cardlook">
+                {% if product.available %}
+                  <button type="submit" name="add">Add to cart</button>
+                {% else %}
+                  <button type="submit" name="add" disabled>Sold Out</button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </section>
+  </div>
+</section>

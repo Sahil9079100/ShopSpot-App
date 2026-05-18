@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ':*)",
+      "Bash(curl -s -X POST -H \"Authorization: Bearer 1|qHHSfOcJ9tauKYaDL51AOVoTjamtbBMtmI78tXAU7dccba00\" \"http://91.239.208.85:8000/api/v1/applications/n125x8jranmps1wcevf9yv8k/deploy\")"
+    ]
+  }
+}

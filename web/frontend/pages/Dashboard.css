@@ -1,0 +1,175 @@
+.ls-dashboard {
+  --ls-bg-a: #f8fafc;
+  --ls-bg-b: #eef2ff;
+  --ls-text: #0f172a;
+  --ls-muted: #64748b;
+  --ls-card-border: #e2e8f0;
+  --ls-accent: #4f46e5;
+  --ls-accent-hover: #4338ca;
+  --ls-amber: #f59e0b;
+}
+
+.ls-dashboard .Polaris-Page {
+  background: linear-gradient(
+    180deg,
+    var(--ls-bg-a) 0%,
+    var(--ls-bg-b) 100%
+  );
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.ls-dashboard .Polaris-Page-Header__Title h1 {
+  color: var(--ls-text);
+  letter-spacing: -0.2px;
+}
+
+.ls-card .Polaris-LegacyCard,
+.ls-card .Polaris-CalloutCard,
+.ls-hero .Polaris-Banner {
+  border-radius: 10px;
+  border: 1px solid var(--ls-card-border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.ls-hero .Polaris-Banner {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+  border-color: #c7d2fe;
+}
+
+/* status card */
+.ls-card--status .Polaris-LegacyCard {
+  background: #ffffff;
+}
+
+.ls-status-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ls-status-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ls-status-badge {
+  flex: 0 0 auto;
+  padding-top: 4px;
+}
+
+.ls-card--status .Polaris-Button--primary {
+  background: var(--ls-accent);
+  border-color: var(--ls-accent);
+  box-shadow: 0 1px 0 rgba(79, 70, 229, 0.15);
+}
+
+.ls-card--status .Polaris-Button--primary:hover {
+  background: var(--ls-accent-hover);
+  border-color: var(--ls-accent-hover);
+}
+
+/* steps card */
+.ls-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.ls-steps li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--ls-card-border);
+  border-radius: 8px;
+  background: #fafbff;
+}
+
+.ls-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ls-accent);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ls-steps h3 {
+  margin: 0 0 4px;
+  color: var(--ls-text);
+}
+
+/* highlights grid */
+.ls-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 720px) {
+  .ls-highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ls-highlight {
+  padding: 14px;
+  border: 1px solid var(--ls-card-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.ls-highlight h3 {
+  margin: 8px 0 4px;
+  color: var(--ls-text);
+}
+
+.ls-highlight-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ls-dot-a {
+  background: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+.ls-dot-b {
+  background: #f59e0b;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+}
+.ls-dot-c {
+  background: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+.ls-dot-d {
+  background: #ec4899;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15);
+}
+
+/* CTA */
+.ls-card--cta .Polaris-LegacyCard {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-color: #ddd6fe;
+}
+
+@media (max-width: 600px) {
+  .ls-dashboard .Polaris-Page {
+    padding: 12px;
+  }
+
+  .ls-status-row {
+    flex-direction: column;
+  }
+}

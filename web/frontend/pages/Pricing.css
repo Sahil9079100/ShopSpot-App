@@ -1,0 +1,150 @@
+.ls-pricing {
+  --ls-bg-a: #f8fafc;
+  --ls-bg-b: #eef2ff;
+  --ls-text: #0f172a;
+  --ls-muted: #64748b;
+  --ls-card-border: #e2e8f0;
+  --ls-accent: #4f46e5;
+  --ls-accent-hover: #4338ca;
+  --ls-amber: #f59e0b;
+  --ls-amber-soft: #fde68a;
+}
+
+.ls-pricing .Polaris-Page {
+  background: linear-gradient(180deg, var(--ls-bg-a) 0%, var(--ls-bg-b) 100%);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.ls-pricing .Polaris-Page-Header__Title h1 {
+  color: var(--ls-text);
+  letter-spacing: -0.2px;
+}
+
+.ls-pricing-status .Polaris-Banner {
+  border-radius: 10px;
+}
+
+/* plan cards */
+.ls-plan .Polaris-LegacyCard {
+  border-radius: 12px;
+  border: 1px solid var(--ls-card-border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.ls-plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.ls-plan-cadence {
+  font-size: 14px;
+  color: var(--ls-muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.ls-plan--premium .Polaris-LegacyCard {
+  background: linear-gradient(160deg, #fffbeb 0%, #fef3c7 100%);
+  border-color: var(--ls-amber-soft);
+}
+
+.ls-plan--premium .Polaris-Button--primary:not([disabled]) {
+  background: var(--ls-accent);
+  border-color: var(--ls-accent);
+}
+
+.ls-plan--premium .Polaris-Button--primary:not([disabled]):hover {
+  background: var(--ls-accent-hover);
+  border-color: var(--ls-accent-hover);
+}
+
+.ls-plan--free .Polaris-LegacyCard {
+  background: #ffffff;
+}
+
+/* feature comparison list */
+.ls-pricing-compare .Polaris-LegacyCard {
+  border-radius: 12px;
+  border: 1px solid var(--ls-card-border);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.ls-pricing-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-pricing-list-head,
+.ls-pricing-list-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--ls-card-border);
+}
+
+.ls-pricing-list-head {
+  font-weight: 700;
+  color: var(--ls-text);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  background: #f8fafc;
+  border-bottom: 2px solid var(--ls-card-border);
+}
+
+.ls-pricing-list-row:last-child {
+  border-bottom: 0;
+}
+
+.ls-pricing-feature {
+  color: var(--ls-text);
+  font-size: 14px;
+}
+
+.ls-pricing-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+  color: var(--ls-muted);
+}
+
+.ls-pricing-cell--yes .Polaris-Icon {
+  color: #16a34a;
+}
+
+.ls-pricing-cell--no .Polaris-Icon {
+  opacity: 0.5;
+}
+
+/* cancel block */
+.ls-pricing-cancel .Polaris-LegacyCard {
+  background: #fff7f5;
+  border: 1px dashed #fecaca;
+  border-radius: 12px;
+}
+
+.ls-pricing-cancel .Polaris-Button--plain.Polaris-Button--destructive {
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .ls-pricing .Polaris-Page {
+    padding: 12px;
+  }
+
+  .ls-pricing-list-head,
+  .ls-pricing-list-row {
+    grid-template-columns: 1.4fr 0.8fr 0.8fr;
+    font-size: 13px;
+  }
+}

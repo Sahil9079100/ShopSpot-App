@@ -1,0 +1,122 @@
+{% render 'shop-the-look-free' %}
+
+{% schema %}
+{
+  "name": "ShopSpot Free",
+  "target": "section",
+  "stylesheet": "shop_look.css",
+  "javascript": "shop_look.js",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mainHeading",
+      "label": "Heading",
+      "default": "Shop By Look"
+    },
+    {
+      "type": "text",
+      "id": "mainHeading2",
+      "label": "Mobile Drawer Heading",
+      "default": "Shoppable Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "productImage",
+      "label": "Shop the look Image",
+      "info": "aspect ratio 1:1"
+    },
+    {
+      "type": "header",
+      "content": "First Product Settings"
+    },
+    {
+      "type": "url",
+      "id": "product_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "range",
+      "id": "x-coordinate1",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Hotspot Position x Coordinate",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "y-coordinate1",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Hotspot Position y Coordinate",
+      "default": 65
+    },
+    {
+      "type": "header",
+      "content": "Second Product Settings"
+    },
+    {
+      "type": "url",
+      "id": "product_2",
+      "label": "Product 2"
+    },
+    {
+      "type": "range",
+      "id": "x-coordinate2",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Hotspot Position x Coordinate",
+      "default": 39
+    },
+    {
+      "type": "range",
+      "id": "y-coordinate2",
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "Hotspot Position y Coordinate",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "bgColor",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "Color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "hotspotbgcolor",
+      "label": "Hotspot Inner background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "select",
+      "id": "img-position",
+      "label": "Image Fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "contain"
+    }
+  ]
+}
+{% endschema %}

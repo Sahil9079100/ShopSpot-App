@@ -68,7 +68,7 @@ const PLAN_FEATURES = [
   { label: "Custom styling controls", free: false, premium: true },
   { label: "Mobile drawer & gallery", free: true, premium: true },
   { label: "Priority email support", free: false, premium: true },
-  { label: "ShopSpot watermark removed", free: false, premium: true },
+  { label: "LookSpot watermark removed", free: false, premium: true },
 ];
 
 function FeatureCell({ value }) {
@@ -207,7 +207,7 @@ export default function Pricing() {
               <div className="ls-pricing-status">
                 <Banner status="success" title="Premium plan active">
                   <p>
-                    You're on the Premium plan. All ShopSpot features are
+                    You're on the Premium plan. All LookSpot features are
                     unlocked across your storefront.
                   </p>
                 </Banner>
@@ -269,7 +269,7 @@ export default function Pricing() {
                       </Text>
                     </Box>
                     <Text variant="bodyMd" color="subdued" as="p">
-                      Get a feel for ShopSpot. Limited looks per store and a
+                      Get a feel for LookSpot. Limited looks per store and a
                       cap of 2 hotspots per image.
                     </Text>
                     {isFreeActive && !fetchFailed && (

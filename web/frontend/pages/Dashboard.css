@@ -1,53 +1,117 @@
 .ls-dashboard {
-  --ls-bg-a: #f8fafc;
-  --ls-bg-b: #eef2ff;
-  --ls-text: #0f172a;
-  --ls-muted: #64748b;
-  --ls-card-border: #e2e8f0;
-  --ls-accent: #4f46e5;
-  --ls-accent-hover: #4338ca;
-  --ls-amber: #f59e0b;
+  --ls-page-bg: linear-gradient(180deg, #f7f8fc 0%, #eef2f8 100%);
+  --ls-surface: rgba(255, 255, 255, 0.92);
+  --ls-surface-strong: #ffffff;
+  --ls-surface-soft: #f6f8fc;
+  --ls-border: #dbe3ef;
+  --ls-border-strong: #c8d4e3;
+  --ls-text: #152033;
+  --ls-muted: #5f6f86;
+  --ls-accent: #2563eb;
+  --ls-accent-hover: #1d4ed8;
+  --ls-accent-soft: rgba(37, 99, 235, 0.12);
+  --ls-success-soft: rgba(14, 165, 233, 0.12);
+  --ls-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --ls-card-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  color: var(--ls-text);
 }
 
 .ls-dashboard .Polaris-Page {
-  background: linear-gradient(
-    180deg,
-    var(--ls-bg-a) 0%,
-    var(--ls-bg-b) 100%
-  );
-  border-radius: 12px;
-  padding: 18px;
+  background: var(--ls-page-bg);
+  border: 1px solid rgba(219, 227, 239, 0.9);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--ls-shadow);
 }
 
 .ls-dashboard .Polaris-Page-Header__Title h1 {
   color: var(--ls-text);
-  letter-spacing: -0.2px;
+  letter-spacing: -0.03em;
+}
+
+.ls-dashboard .Polaris-Layout {
+  gap: 0;
 }
 
 .ls-card .Polaris-LegacyCard,
 .ls-card .Polaris-CalloutCard,
 .ls-hero .Polaris-Banner {
-  border-radius: 10px;
-  border: 1px solid var(--ls-card-border);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
-    0 4px 12px rgba(15, 23, 42, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(219, 227, 239, 0.95);
+  box-shadow: var(--ls-card-shadow);
+  overflow: hidden;
+}
+
+.ls-card .Polaris-LegacyCard {
+  background: var(--ls-surface);
+  backdrop-filter: blur(14px);
+}
+
+.ls-card .Polaris-LegacyCard__Section {
+  padding: 22px;
+}
+
+.ls-card + .ls-card,
+.ls-hero + .ls-card {
+  margin-top: 0;
 }
 
 .ls-hero .Polaris-Banner {
-  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-  border-color: #c7d2fe;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f7ff 58%, #edf4ff 100%);
+  border-color: var(--ls-border-strong);
 }
 
-/* status card */
-.ls-card--status .Polaris-LegacyCard {
+.ls-hero .Polaris-Banner__Content {
+  padding: 4px 2px;
+}
+
+.ls-hero .Polaris-Banner__Heading {
+  color: var(--ls-text);
+}
+
+.ls-hero p {
+  color: var(--ls-muted);
+  max-width: 62ch;
+  line-height: 1.6;
+}
+
+.ls-dashboard .Polaris-Badge {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.ls-card .Polaris-Button--primary,
+.ls-hero .Polaris-Button--primary {
+  background: var(--ls-accent);
+  border-color: var(--ls-accent);
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.18);
+}
+
+.ls-card .Polaris-Button--primary:hover,
+.ls-hero .Polaris-Button--primary:hover {
+  background: var(--ls-accent-hover);
+  border-color: var(--ls-accent-hover);
+}
+
+.ls-card .Polaris-Button:not(.Polaris-Button--primary) {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--ls-border-strong);
+}
+
+.ls-card .Polaris-Button:not(.Polaris-Button--primary):hover {
   background: #ffffff;
+  border-color: #b8c8dc;
+}
+
+.ls-card--status .Polaris-LegacyCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 255, 0.96) 100%);
 }
 
 .ls-status-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 18px;
 }
 
 .ls-status-text {
@@ -55,121 +119,175 @@
   min-width: 0;
 }
 
+.ls-status-text p {
+  line-height: 1.6;
+}
+
 .ls-status-badge {
   flex: 0 0 auto;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
-.ls-card--status .Polaris-Button--primary {
-  background: var(--ls-accent);
-  border-color: var(--ls-accent);
-  box-shadow: 0 1px 0 rgba(79, 70, 229, 0.15);
-}
-
-.ls-card--status .Polaris-Button--primary:hover {
-  background: var(--ls-accent-hover);
-  border-color: var(--ls-accent-hover);
-}
-
-/* steps card */
 .ls-steps {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
 .ls-steps li {
   display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 14px;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
   align-items: start;
-  padding: 14px;
-  border: 1px solid var(--ls-card-border);
-  border-radius: 8px;
-  background: #fafbff;
+  padding: 18px;
+  border: 1px solid rgba(219, 227, 239, 0.95);
+  border-radius: 18px;
+  background: var(--ls-surface-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.ls-steps li:hover {
+  transform: translateY(-1px);
+  border-color: #bfd0e6;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
 }
 
 .ls-step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--ls-accent);
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
   color: #ffffff;
   font-size: 14px;
   font-weight: 700;
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.18);
 }
 
 .ls-steps h3 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
   color: var(--ls-text);
 }
 
-/* highlights grid */
+.ls-steps p {
+  line-height: 1.6;
+}
+
 .ls-highlights-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 760px) {
   .ls-highlights-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 .ls-highlight {
-  padding: 14px;
-  border: 1px solid var(--ls-card-border);
-  border-radius: 8px;
-  background: #ffffff;
+  padding: 18px;
+  border: 1px solid rgba(219, 227, 239, 0.9);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 250, 255, 0.96) 100%);
+  min-height: 100%;
 }
 
 .ls-highlight h3 {
-  margin: 8px 0 4px;
+  margin: 12px 0 6px;
   color: var(--ls-text);
 }
 
+.ls-highlight p {
+  color: var(--ls-muted);
+  line-height: 1.6;
+}
+
 .ls-highlight-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
   display: inline-block;
 }
 
 .ls-dot-a {
-  background: #4f46e5;
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  background: #2563eb;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.1);
 }
+
 .ls-dot-b {
   background: #f59e0b;
-  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.12);
 }
+
 .ls-dot-c {
-  background: #10b981;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  background: #0ea5e9;
+  box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.11);
 }
+
 .ls-dot-d {
-  background: #ec4899;
-  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.15);
+  background: #8b5cf6;
+  box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.11);
 }
 
-/* CTA */
 .ls-card--cta .Polaris-LegacyCard {
-  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  border-color: #ddd6fe;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+  border-color: #cfdbeb;
 }
 
-@media (max-width: 600px) {
+.ls-card--cta .Polaris-LegacyStack {
+  gap: 18px;
+}
+
+.ls-card--cta p,
+.ls-card--faq p,
+.ls-card--highlights p,
+.ls-card--steps p {
+  color: var(--ls-muted);
+}
+
+.ls-card--faq .Polaris-LegacyCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 251, 255, 0.95) 100%);
+}
+
+.ls-faq {
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
   .ls-dashboard .Polaris-Page {
-    padding: 12px;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .ls-card .Polaris-LegacyCard__Section {
+    padding: 18px;
   }
 
   .ls-status-row {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .ls-dashboard .Polaris-Page {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .ls-steps li {
+    grid-template-columns: 40px 1fr;
+    padding: 16px;
+  }
+
+  .ls-card--cta .Polaris-LegacyStack {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

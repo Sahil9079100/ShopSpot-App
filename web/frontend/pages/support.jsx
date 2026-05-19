@@ -15,31 +15,31 @@ const SUPPORT_EMAIL = "strumpet204@gmail.com";
 
 const FAQS = [
   {
-    q: "Where on my store can I use ShopSpot?",
+    q: "Where on my store can I use LookSpot?",
     a: "Anywhere your theme lets you add an app block — product pages, the homepage, collection pages, custom pages, and more.",
   },
   {
-    q: "Does ShopSpot work with my theme?",
-    a: "ShopSpot works on every Shopify Online Store 2.0 theme. If your theme exposes an “App blocks” picker in the editor, ShopSpot is supported.",
+    q: "Does LookSpot work with my theme?",
+    a: 'LookSpot works on every Shopify Online Store 2.0 theme. If your theme exposes an "App blocks" picker in the editor, LookSpot is supported.',
   },
   {
-    q: "Will ShopSpot slow my store down?",
+    q: "Will LookSpot slow my store down?",
     a: "No. The block ships a small CSS and JS bundle, lazy-loads images, and won't add render-blocking scripts.",
   },
   {
     q: "Can I tag more than one product on a single image?",
-    a: "Yes. Each ShopSpot block supports up to five product hotspots per image on the Premium plan.",
+    a: "Yes. Each LookSpot block supports up to five product hotspots per image on the Premium plan.",
   },
   {
     q: "Can I customize the colors and headings?",
     a: "Yes. Heading text, button background, hotspot color, and image fit are all editable from the block settings panel in your theme editor.",
   },
   {
-    q: "Is ShopSpot mobile-friendly?",
+    q: "Is LookSpot mobile-friendly?",
     a: "Yes. The hotspot grid adapts to small screens and opens products in a mobile drawer for an easy tap-to-add experience.",
   },
   {
-    q: "What use cases work well with ShopSpot?",
+    q: "What use cases work well with LookSpot?",
     a: "Outfit-style shoppable lookbooks, “complete the room” furniture pairings, “pair with” cross-sells, gift bundles, and editorial campaign pages.",
   },
   {

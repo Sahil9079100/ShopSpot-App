@@ -67,11 +67,11 @@ export default function HomePage() {
 
   return (
     <div className="ls-dashboard">
-      <Page title="ShopSpot home">
+      <Page title="LookSpot home">
         <Layout>
           <Layout.Section>
             <div className="ls-hero">
-              <Banner status="info" title="Welcome to ShopSpot">
+              <Banner status="info" title="Welcome to LookSpot">
                 <p>
                   Turn any product image into a shoppable look. Drop hotspots,
                   link products, and let shoppers add multiple items to cart
@@ -92,7 +92,7 @@ export default function HomePage() {
                     <Box paddingBlockStart="200">
                       <Text variant="bodyMd" color="subdued" as="p">
                         {isPremiumActive
-                          ? "Premium plan active. All ShopSpot features are unlocked."
+                          ? "Premium plan active. All LookSpot features are unlocked."
                           : "You're currently on the Free plan with limited usage."}
                       </Text>
                     </Box>
@@ -139,11 +139,11 @@ export default function HomePage() {
                     <span className="ls-step-num">1</span>
                     <div>
                       <Text variant="headingSm" as="h3">
-                        Add the ShopSpot block
+                        Add the LookSpot block
                       </Text>
                       <Text variant="bodyMd" color="subdued" as="p">
                         Click <strong>Open theme editor</strong> above, then add
-                        the ShopSpot block to any section of your theme.
+                        the LookSpot block to any section of your theme.
                       </Text>
                     </div>
                   </li>
@@ -190,7 +190,7 @@ export default function HomePage() {
 
           <Layout.Section>
             <div className="ls-card ls-card--highlights">
-              <LegacyCard title="What ShopSpot does for your store" sectioned>
+              <LegacyCard title="What LookSpot does for your store" sectioned>
                 <div className="ls-highlights-grid">
                   <div className="ls-highlight">
                     <div className="ls-highlight-dot ls-dot-a" />

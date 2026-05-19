@@ -1,60 +1,111 @@
 .ls-pricing {
-  --ls-bg-a: #f8fafc;
-  --ls-bg-b: #eef2ff;
-  --ls-text: #0f172a;
-  --ls-muted: #64748b;
-  --ls-card-border: #e2e8f0;
-  --ls-accent: #4f46e5;
-  --ls-accent-hover: #4338ca;
-  --ls-amber: #f59e0b;
-  --ls-amber-soft: #fde68a;
+  --ls-page-bg: linear-gradient(180deg, #f7f8fc 0%, #eef2f8 100%);
+  --ls-surface: rgba(255, 255, 255, 0.94);
+  --ls-surface-strong: #ffffff;
+  --ls-surface-soft: #f6f8fc;
+  --ls-border: #dbe3ef;
+  --ls-border-strong: #c8d4e3;
+  --ls-text: #152033;
+  --ls-muted: #5f6f86;
+  --ls-accent: #2563eb;
+  --ls-accent-hover: #1d4ed8;
+  --ls-premium-bg: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+  --ls-premium-tint: rgba(37, 99, 235, 0.08);
+  --ls-success-tint: rgba(16, 185, 129, 0.12);
+  --ls-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --ls-card-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  color: var(--ls-text);
 }
 
 .ls-pricing .Polaris-Page {
-  background: linear-gradient(180deg, var(--ls-bg-a) 0%, var(--ls-bg-b) 100%);
-  border-radius: 12px;
-  padding: 18px;
+  background: var(--ls-page-bg);
+  border: 1px solid rgba(219, 227, 239, 0.9);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--ls-shadow);
 }
 
 .ls-pricing .Polaris-Page-Header__Title h1 {
   color: var(--ls-text);
-  letter-spacing: -0.2px;
+  letter-spacing: -0.03em;
 }
 
 .ls-pricing-status .Polaris-Banner {
-  border-radius: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--ls-border-strong);
+  box-shadow: var(--ls-card-shadow);
 }
 
-/* plan cards */
+.ls-pricing-status .Polaris-Banner__Heading {
+  color: var(--ls-text);
+}
+
+.ls-pricing-status p {
+  color: var(--ls-muted);
+  line-height: 1.6;
+}
+
+.ls-plan .Polaris-LegacyCard,
+.ls-pricing-compare .Polaris-LegacyCard {
+  border-radius: 20px;
+  border: 1px solid rgba(219, 227, 239, 0.95);
+  box-shadow: var(--ls-card-shadow);
+  overflow: hidden;
+}
+
 .ls-plan .Polaris-LegacyCard {
-  border-radius: 12px;
-  border: 1px solid var(--ls-card-border);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04),
-    0 4px 12px rgba(15, 23, 42, 0.05);
+  background: var(--ls-surface);
+  backdrop-filter: blur(14px);
+}
+
+.ls-plan .Polaris-LegacyCard__Section,
+.ls-pricing-compare .Polaris-LegacyCard__Section {
+  padding: 24px;
 }
 
 .ls-plan-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.ls-plan-head .Polaris-Badge {
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 .ls-plan-cadence {
   font-size: 14px;
   color: var(--ls-muted);
   font-weight: 500;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 .ls-plan--premium .Polaris-LegacyCard {
-  background: linear-gradient(160deg, #fffbeb 0%, #fef3c7 100%);
-  border-color: var(--ls-amber-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(244, 248, 255, 0.98) 100%);
+  border-color: #bfd2eb;
+  position: relative;
+}
+
+.ls-plan--premium .Polaris-LegacyCard::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0%, rgba(37, 99, 235, 0) 38%);
+  pointer-events: none;
+}
+
+.ls-plan--premium .Polaris-LegacyCard__Section {
+  position: relative;
+  z-index: 1;
 }
 
 .ls-plan--premium .Polaris-Button--primary:not([disabled]) {
   background: var(--ls-accent);
   border-color: var(--ls-accent);
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.18);
 }
 
 .ls-plan--premium .Polaris-Button--primary:not([disabled]):hover {
@@ -63,14 +114,16 @@
 }
 
 .ls-plan--free .Polaris-LegacyCard {
-  background: #ffffff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 253, 0.96) 100%);
 }
 
-/* feature comparison list */
+.ls-plan .Polaris-Button:not(.Polaris-Button--primary) {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: var(--ls-border-strong);
+}
+
 .ls-pricing-compare .Polaris-LegacyCard {
-  border-radius: 12px;
-  border: 1px solid var(--ls-card-border);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  background: var(--ls-surface-strong);
 }
 
 .ls-pricing-list {
@@ -84,11 +137,11 @@
 .ls-pricing-list-head,
 .ls-pricing-list-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(110px, 1fr) minmax(110px, 1fr);
   align-items: center;
-  gap: 12px;
-  padding: 12px 4px;
-  border-bottom: 1px solid var(--ls-card-border);
+  gap: 14px;
+  padding: 16px 2px;
+  border-bottom: 1px solid rgba(219, 227, 239, 0.95);
 }
 
 .ls-pricing-list-head {
@@ -96,9 +149,13 @@
   color: var(--ls-text);
   text-transform: uppercase;
   font-size: 12px;
-  letter-spacing: 0.06em;
-  background: #f8fafc;
-  border-bottom: 2px solid var(--ls-card-border);
+  letter-spacing: 0.08em;
+  background: #f7f9fc;
+  border-radius: 14px;
+  border-bottom: 1px solid rgba(219, 227, 239, 0.95);
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-bottom: 8px;
 }
 
 .ls-pricing-list-row:last-child {
@@ -108,6 +165,7 @@
 .ls-pricing-feature {
   color: var(--ls-text);
   font-size: 14px;
+  font-weight: 600;
 }
 
 .ls-pricing-cell {
@@ -116,6 +174,7 @@
   justify-content: flex-start;
   font-size: 14px;
   color: var(--ls-muted);
+  line-height: 1.5;
 }
 
 .ls-pricing-cell--yes .Polaris-Icon {
@@ -123,28 +182,38 @@
 }
 
 .ls-pricing-cell--no .Polaris-Icon {
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
-/* cancel block */
-.ls-pricing-cancel .Polaris-LegacyCard {
-  background: #fff7f5;
-  border: 1px dashed #fecaca;
-  border-radius: 12px;
-}
+@media (max-width: 768px) {
+  .ls-pricing .Polaris-Page {
+    padding: 18px;
+    border-radius: 20px;
+  }
 
-.ls-pricing-cancel .Polaris-Button--plain.Polaris-Button--destructive {
-  font-weight: 600;
+  .ls-plan .Polaris-LegacyCard__Section,
+  .ls-pricing-compare .Polaris-LegacyCard__Section {
+    padding: 18px;
+  }
 }
 
 @media (max-width: 600px) {
   .ls-pricing .Polaris-Page {
-    padding: 12px;
+    padding: 14px;
+    border-radius: 18px;
   }
 
   .ls-pricing-list-head,
   .ls-pricing-list-row {
-    grid-template-columns: 1.4fr 0.8fr 0.8fr;
+    grid-template-columns: minmax(0, 1.4fr) minmax(68px, 0.8fr) minmax(68px, 0.8fr);
+    gap: 10px;
     font-size: 13px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .ls-pricing-list-head {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

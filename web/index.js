@@ -1,8 +1,9 @@
 // @ts-check
 import { join } from "path";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
+import { createProxyMiddleware } from "http-proxy-middleware";
 import { RequestedTokenType } from "@shopify/shopify-api";
 
 import shopify, { PREMIUM_PLAN_PRICE } from "./shopify.js";
@@ -16,11 +17,12 @@ dotenv.config();
 /* -------------------------------------------------------------------------- */
 
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.PORT || "3000", 10);
+const FRONTEND_PORT = parseInt(process.env.FRONTEND_PORT || "3000", 10);
+const FRONTEND_URL = `http://127.0.0.1:${FRONTEND_PORT}`;
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
 
-const STATIC_PATH =
-  process.env.NODE_ENV === "production"
-    ? `${process.cwd()}/frontend/dist`
-    : `${process.cwd()}/frontend/`;
+const STATIC_PATH = `${process.cwd()}/frontend/dist`;
+const VITE_DEV_PATH_REGEX = /^(?:\/@vite|\/@react-refresh|\/src\/|\/node_modules\/|\/assets\/|\/index\.jsx$|\/App\.jsx$|\/Routes\.jsx$|\/dev_embed\.js$|\/pages\/|\/components\/|\/hooks\/)/;
 
 // Active plan handle. Must match a key in `billingConfig` in web/shopify.js.
 // IMPORTANT: this MUST NOT match any plan registered in Partner Dashboard
@@ -982,15 +984,54 @@ app.get("/api/getshop", async (req, res) => {
 
 app.use(shopify.cspHeaders());
 
-app.use(serveStatic(STATIC_PATH, { index: false }));
+if (IS_PRODUCTION) {
+  if (!existsSync(join(STATIC_PATH, "index.html"))) {
+    throw new Error(`Missing production frontend build at ${STATIC_PATH}`);
+  }
 
-app.use("/", async (_req, res) => {
-  const html = readFileSync(join(STATIC_PATH, "index.html"), "utf8").replace(
-    "%SHOPIFY_API_KEY%",
-    process.env.SHOPIFY_API_KEY || ""
-  );
-  res.status(200).set("Content-Type", "text/html").send(html);
-});
+  app.use(serveStatic(STATIC_PATH, { index: false }));
+
+  app.use("/", async (_req, res) => {
+    const html = readFileSync(join(STATIC_PATH, "index.html"), "utf8").replace(
+      "%SHOPIFY_API_KEY%",
+      process.env.SHOPIFY_API_KEY || ""
+    );
+    res.status(200).set("Content-Type", "text/html").send(html);
+  });
+} else {
+  const viteProxy = createProxyMiddleware({
+    target: FRONTEND_URL,
+    changeOrigin: false,
+    ws: true,
+  });
+
+  app.use((req, res, next) => {
+    if (req.method !== "GET" && req.method !== "HEAD") return next();
+    if (req.path.startsWith("/api") || req.path === shopify.config.auth.path || req.path === shopify.config.auth.callbackPath) {
+      return next();
+    }
+    if (VITE_DEV_PATH_REGEX.test(req.path)) {
+      return viteProxy(req, res, next);
+    }
+    next();
+  });
+
+  app.get("/", shopify.ensureInstalledOnShop(), async (_req, res) => {
+    const html = readFileSync(join(process.cwd(), "frontend", "index.html"), "utf8").replace(
+      "%SHOPIFY_API_KEY%",
+      process.env.SHOPIFY_API_KEY || ""
+    );
+    res.status(200).set("Content-Type", "text/html").send(html);
+  });
+
+  app.use("/*", shopify.ensureInstalledOnShop(), async (_req, res) => {
+    const html = readFileSync(join(process.cwd(), "frontend", "index.html"), "utf8").replace(
+      "%SHOPIFY_API_KEY%",
+      process.env.SHOPIFY_API_KEY || ""
+    );
+    res.status(200).set("Content-Type", "text/html").send(html);
+  });
+}
 
 app.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)

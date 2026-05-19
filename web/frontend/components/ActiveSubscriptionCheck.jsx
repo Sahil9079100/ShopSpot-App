@@ -55,7 +55,7 @@ export function ActiveSubscription() {
           </p>
           <p>
             <strong>Enable Steps: </strong> Open Theme Customization &gt; Add a
-            section &gt; choose <em>ShopSpot Premium</em> from the app blocks
+            section &gt; choose <em>LookSpot Premium</em> from the app blocks
             picker.
           </p>
         </Banner>
@@ -70,7 +70,7 @@ export function ActiveSubscription() {
           <p>- You are currently on Free plan with limited features.</p>
           <p>
             - <strong>Enable Steps: </strong> Open Theme Customization &gt; Add
-            a section &gt; choose <em>ShopSpot Free</em> from the app blocks
+            a section &gt; choose <em>LookSpot Free</em> from the app blocks
             picker.
           </p>
           <p>- Compare plans below for better insights. </p>

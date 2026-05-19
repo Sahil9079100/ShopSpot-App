@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "415f4f6f5a2b9bbe6ec041251e753694"
-name = "Lookspot"
+name = "LookSpot"
 application_url = "https://shopspot.solnix.store"
 embedded = true
 

@@ -6,7 +6,7 @@
   "scripts": {
     "shopify": "shopify",
     "build": "shopify app build",
-    "dev": "shopify app dev",
+    "dev": "shopify app dev --reset",
     "dev:localhost": "shopify app dev --use-localhost",
     "dev:no-update": "shopify app dev --no-update",
     "dev:reset": "shopify app dev --reset",

@@ -18,8 +18,8 @@ const STEPS = [
     body: "From your Shopify admin, head to Online Store → Themes → Customize on your active theme.",
   },
   {
-    title: "Add the ShopSpot block",
-    body: "In the theme editor, pick a section and click “Add block”. Choose “ShopSpot” from the App blocks list.",
+    title: "Add the LookSpot block",
+    body: "In the theme editor, pick a section and click “Add block”. Choose “LookSpot” from the App blocks list.",
   },
   {
     title: "Upload a hero image",
@@ -31,7 +31,7 @@ const STEPS = [
   },
   {
     title: "Save and preview",
-    body: "Save the theme. Visit any page where you placed the block to see ShopSpot live.",
+    body: "Save the theme. Visit any page where you placed the block to see LookSpot live.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function Installation() {
                 }}
               >
                 <p>
-                  ShopSpot installs as a theme app block — no code changes, no
+                  LookSpot installs as a theme app block — no code changes, no
                   uploads. Follow the five steps below and you're ready to go.
                 </p>
               </Banner>
@@ -111,7 +111,7 @@ export default function Installation() {
             <div className="ls-card ls-card--highlights">
               <LegacyCard title="Theme requirements" sectioned>
                 <Text variant="bodyMd" as="p">
-                  ShopSpot works on every Shopify Online Store 2.0 theme.
+                  LookSpot works on every Shopify Online Store 2.0 theme.
                   Older 1.0 themes (e.g. legacy Debut, classic Brooklyn) are
                   not supported because they don't run app blocks.
                 </Text>
@@ -120,7 +120,7 @@ export default function Installation() {
                     Not sure which version your theme is on? Open the theme
                     editor — if you can see the “App blocks” picker
                     when adding a block to a section, you're on 2.0 and
-                    ShopSpot is good to go.
+                    LookSpot is good to go.
                   </Text>
                 </Box>
               </LegacyCard>

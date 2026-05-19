@@ -51,7 +51,7 @@ const shopify = shopifyApp({
   },
   sessionStorage: new MongoDBSessionStorage(
     process.env.MONGODB_URL,
-    process.env.MONGO_DB_NAME || "shopspot"
+    process.env.MONGO_DB_NAME || "lookspot"
   ),
 });
 

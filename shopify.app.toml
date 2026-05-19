@@ -2,7 +2,7 @@
 
 client_id = "415f4f6f5a2b9bbe6ec041251e753694"
 name = "LookSpot"
-application_url = "https://shopspot.solnix.store"
+application_url = "https://lookspot.solnix.store"
 embedded = true
 
 [build]
@@ -22,7 +22,7 @@ optional_scopes = [ ]
 use_legacy_install_flow = false
 
 [auth]
-redirect_urls = [ "https://shopspot.solnix.store/api/auth" ]
+redirect_urls = [ "https://lookspot.solnix.store/api/auth/callback" ]
 
 [app_preferences]
-url = "https://shopspot.solnix.store"
+url = "https://lookspot.solnix.store"

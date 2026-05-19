@@ -2,7 +2,7 @@
 
 client_id = "4ce52761cadc41311344426974641242"
 name = "LookSpot"
-application_url = "https://lookspot.startwith.live"
+application_url = "https://lookspot.solnix.store"
 embedded = true
 
 [build]
@@ -16,4 +16,4 @@ api_version = "2026-07"
 scopes = "read_products,write_products"
 
 [auth]
-redirect_urls = [ "https://lookspot.startwith.live/api/auth/callback" ]
+redirect_urls = [ "https://lookspot.solnix.store/api/auth/callback" ]
